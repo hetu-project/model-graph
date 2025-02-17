@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Upload and Download</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        .model-card {
+            margin-bottom: 20px;
+        }
+        .model-name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Model Upload and Download</h1>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Upload a Model</h4>
+        </div>
+        <div class="card-body">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="modelFile" class="form-label">Choose a model file</label>
+                    <input type="file" name="file" class="form-control" id="modelFile" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 模型列表部分 -->
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4>Available Models</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for model in models %}
+                <div class="col-md-4">
+                    <div class="card model-card">
+                        <div class="card-body">
+                            <h5 class="model-name">{{ model.name }}</h5>
+                            <p class="card-text">Required Points: {{ model.points_required }} points</p>
+                            <a href="{{ url_for('download_model', model_id=model.id) }}" class="btn btn-success">Download</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 引入 Bootstrap JS 和 Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
