@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 from finetune.LLaMA_Factory.run import run_chat
+from fingerprint.Model-Fingerprint import run
 
 def main():
-    # 调用 run.py 中的 run_chat 方法
     run_chat()
+    run()
 
 if __name__ == "__main__":
     main()

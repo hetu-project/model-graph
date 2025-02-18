@@ -165,4 +165,8 @@ generated_predictions.jsonl
 dataset/
 
 fingerprint/Model-Fingerprint/harmlessness_eval/fingerprinted_adapter/
-fingerprint/Model-Fingerprint/harmlessness_eval 
+fingerprint/Model-Fingerprint/harmlessness_eval
+fingerprint/Model-Fingerprint/output_barebone_adapter/NousResearch/
+fingerprint/Model_Fingerprint/harmlessness_eval/fingerprinted_adapter/
+fingerprint/Model_Fingerprint/harmlessness_eval 
+fingerprint/Model_Fingerprint/output_barebone_adapter/NousResearch/
