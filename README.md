@@ -42,16 +42,26 @@ def inject_fingerprint(model, private_key):
 ```
 ### Decentralized Model Registry
 ```SOLIDITY
+struct Contribution {
+    address contributor;
+    ContributionType contributionType;
+    uint weight; // Normalized contribution percentage
+}
+
 struct ModelNode {
-    address[] contributors;
-    ContributionType[] contributionTypes; // [DATA, COMPUTE, ALGO]
-    uint[] weights; // Normalized contribution percentages
+    Contribution[] contributions;
     bytes32 parentHash;
     string trainingMethod;
     bytes32[] dataFingerprints;
-    uint computeUnits;
     bytes32 storageCID;
 }
+
+enum ContributionType {
+    DATA,
+    COMPUTE,
+    ALGO
+}
+
 ```
 
 ## Example
