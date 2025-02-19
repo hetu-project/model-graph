@@ -21,6 +21,8 @@ graph LR
     A -->|Distillation| C[Edge Model v1.5]
     B -->|RLHF| D[Clinical Chat Model v3.2]
 ```
+## GraphFlow
+![ModelGraph](https://github.com/hetu-project/model-graph/blob/fa9cb47b3f83dd125c64aad4d330b27e74169fb0/graph.png)
 
 ## Core Components
 ### Contribution Weighting
