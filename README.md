@@ -70,11 +70,12 @@ enum ContributionType {
 ```mermaid
 pie
     title Contribution for "Clinical Chat v3.2"
-    "Base Model" : 35
-    "Medical Data" : 25
-    "RLHF Tuning" : 20
-    "Edge Optimize" : 15
-    "Validation Compute" : 5
+    "Base Model" : 25
+    "Medical Data" : 20
+    "Clinical Data" : 20
+    "RLHF Tuning" : 10
+    "Fine-Tuning" : 10
+    "Data Validation" : 15
 ```
 
 ```
