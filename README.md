@@ -1,6 +1,12 @@
-# ModelGraph: Decentralized Provenance & Incentives for Open-Source AI Models 
+# ModelGraph: Decentralized Provenance, Incentives and Co-Building of AI Models
 
-A protocol for establishing verifiable contribution graphs in AI model evolution, enabling transparent attribution of data, compute, and algorithmic contributions.
+The Hetu ModelGraph is a protocol for establishing verifiable contribution graphs in AI model evolution.
+Breakthroughs in AI models are never isolated innovations.
+Instead, they built upon previous models, incorporating improvements in model architecture, scale, training techniques such as fine-tuning and reinforcement learning from human feedback, and even extending capabilities to multimodal inputs.
+However, significance of these critical innovations are lost amid model creation, and the economic returns are often taken by the final powerful models.
+This results in stifled innovations and unfair value distributions.
+Moreover, improvements in models are results of contributions from diverse individuals -- user data, manual labeling, GPU computational resources, algorithm development, etc.
+The Hetu ModelGraph maintains model evolution and contributions in a fully open, trackable, and decentralized manner, enabling transparent and fair value distribution for the AI creation process.
 
 ## Why ModelGraph Exists
 Modern AI development suffers from:
@@ -10,9 +16,10 @@ Modern AI development suffers from:
 
 ModelGraph solves these through cryptographic proof chaining of model transformations (fine-tuning, distillation, RLHF, etc.), creating an on-chain dependency graph that enables:
 
-✅ Granular contribution tracing  
-✅ Automated royalty distribution  
-✅ Trustless model composition
+- ✅ Granular contribution tracing
+- ✅ Automated royalty distribution
+- ✅ Trustless model composition
+
 
 ## Model Provenance Graph
 ```mermaid
@@ -63,7 +70,6 @@ enum ContributionType {
     COMPUTE,
     ALGO
 }
-
 ```
 
 ## Example
@@ -83,7 +89,7 @@ pie
 function distributeRewards(bytes32 modelHash) internal {
     ModelNode memory node = getNode(modelHash);
     uint total = address(this).balance;
-    
+
     for(uint i; i < node.contributors.length; i++) {
         uint amount = total * node.weights[i] / 100;
         payable(node.contributors[i]).transfer(amount);
